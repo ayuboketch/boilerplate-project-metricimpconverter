@@ -137,3 +137,5 @@ function assertionAnalyser(body) {
 }
 
 module.exports = assertionAnalyser;
+
+const mySecret = process.env['PORT']

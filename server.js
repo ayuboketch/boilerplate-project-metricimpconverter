@@ -38,19 +38,18 @@ app.use(function(req, res, next) {
     .send('Not Found');
 });
 
-const port = process.env.PORT || 3000;
-
 //Start our server and tests!
-app.listen(port, function () {
-  console.log("Listening on port " + port);
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Listening on port " + process.env.PORT);
   if(process.env.NODE_ENV==='test') {
     console.log('Running Tests...');
     setTimeout(function () {
       try {
         runner.run();
       } catch(e) {
+        let error = e;
           console.log('Tests are not valid:');
-          console.error(e);
+          console.log(error);
       }
     }, 1500);
   }
